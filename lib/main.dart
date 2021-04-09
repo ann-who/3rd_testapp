@@ -424,26 +424,23 @@ class _MyAppState extends State<MyApp> {
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Spacer(),
               IconButton(
                 icon: Icon(Icons.home),
                 color: colorWhite,
                 onPressed: () {},
               ),
-              Spacer(),
               IconButton(
                 icon: Icon(Icons.explore),
                 color: colorWhite,
                 onPressed: () {},
               ),
-              Spacer(),
               IconButton(
                 icon: Icon(Icons.library_music),
                 color: colorWhite,
                 onPressed: () {},
               ),
-              Spacer(),
             ],
           ),
           color: colorGray,
