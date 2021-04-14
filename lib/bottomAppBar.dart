@@ -14,17 +14,17 @@ class MyBottomAppBar extends Container {
           IconButton(
             icon: Icon(Icons.home),
             color: AppColor.colorWhite,
-            onPressed: () {},
+            onPressed: () {print('Home tapped')},
           ),
           IconButton(
             icon: Icon(Icons.explore),
             color: AppColor.colorWhite,
-            onPressed: () {},
+            onPressed: () {print('Explore tapped')},
           ),
           IconButton(
             icon: Icon(Icons.library_music),
             color: AppColor.colorWhite,
-            onPressed: () {},
+            onPressed: () {print('Library tapped')},
           ),
         ],
       ),
