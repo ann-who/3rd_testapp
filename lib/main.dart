@@ -123,7 +123,7 @@ class _MyAppState extends State<MyApp> {
               SimpleText(text: 'Start radio based on a song'),
               FancyText(text: 'Quick picks'),
               Column(
-                children: <Widget>[
+                children: [
                   QuickPick(
                       imagePath: 'assets/images/cover7.jpg',
                       textTitle: 'Yamakasi',
