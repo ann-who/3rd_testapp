@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app_3/album_cover.dart';
-import 'package:my_app_3/quick_picks.dart';
+import 'package:my_app_3/quick_pick.dart';
 import 'package:my_app_3/tag_button.dart';
 import 'package:my_app_3/AppColor.dart';
 import 'package:my_app_3/text_style.dart';
@@ -123,16 +123,19 @@ class _MyAppState extends State<MyApp> {
               SimpleText(text: 'Start radio based on a song'),
               FancyText(text: 'Quick picks'),
               Column(
-                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  QuickPicks(
+                  QuickPick(
                       imagePath: 'assets/images/cover7.jpg',
                       textTitle: 'Yamakasi',
                       textSubtitle: 'Miyagi & Andy Panda'),
-                  QuickPicks(
+                  QuickPick(
                       imagePath: 'assets/images/cover1.jpg',
                       textTitle: '505',
                       textSubtitle: 'Arctic Monkeys'),
+                  QuickPick(
+                      imagePath: 'assets/images/cover2.png',
+                      textTitle: 'Give me love',
+                      textSubtitle: 'Joji'),
                 ],
               ),
             ],

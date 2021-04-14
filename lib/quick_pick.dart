@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:my_app_3/AppColor.dart';
 
 //ignore: must_be_immutable
-class QuickPicks extends Card {
+class QuickPick extends Card {
   String _imagePath;
   String _textTitle;
   String _textSubtitle;
 
-  QuickPicks(
+  QuickPick(
       {@required String imagePath,
       @required String textTitle,
       @required String textSubtitle}) {
