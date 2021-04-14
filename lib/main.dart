@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_app_3/album_cover.dart';
+import 'package:my_app_3/quick_picks.dart';
+import 'package:my_app_3/tag_button.dart';
+import 'package:my_app_3/AppColor.dart';
+import 'package:my_app_3/text_style.dart';
+import 'package:my_app_3/bottomAppBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,23 +17,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static final Color colorWhite = const Color(0xfff4f1de);
-  static final Color colorBlack = const Color(0xff0b090a);
-  static final Color colorRed = const Color(0xffba181b);
-  static final Color colorGray = const Color(0xff212529);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: colorBlack,
-        scaffoldBackgroundColor: colorBlack,
+        primaryColor: AppColor.colorBlack,
+        scaffoldBackgroundColor: AppColor.colorBlack,
         fontFamily: 'Fira Sans',
         brightness: Brightness.dark,
         textTheme: TextTheme(
-          button: TextStyle(color: colorWhite),
-          bodyText1: TextStyle(color: colorWhite),
-          bodyText2: TextStyle(color: colorWhite),
+          button: TextStyle(color: AppColor.colorWhite),
+          // headline3: TextStyle(
+          //     color: AppColor.colorWhite, fontSize: 25.0, fontFamily: 'League'),
+          // bodyText1: TextStyle(color: AppColor.colorWhite),
+          // bodyText2: TextStyle(color: AppColor.colorWhite),
         ),
       ),
       title: 'Let\'s listen to music!',
@@ -35,25 +38,25 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           leading: Icon(
             Icons.play_circle_outline,
-            color: colorRed,
+            color: AppColor.colorRed,
           ),
           title: Text(
             'Music',
             style: TextStyle(
               fontSize: 30.0,
-              color: colorWhite,
+              color: AppColor.colorWhite,
               fontFamily: 'League',
             ),
           ),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search, color: colorWhite),
+              icon: Icon(Icons.search, color: AppColor.colorWhite),
               onPressed: () {
                 print('Searching ...');
               },
             ),
             IconButton(
-              icon: Icon(Icons.music_video, color: colorWhite),
+              icon: Icon(Icons.music_video, color: AppColor.colorWhite),
               onPressed: () {
                 print('Enjoy watching!');
               },
@@ -67,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               Text(
                 'Choose your mood',
                 style: TextStyle(
-                  color: colorWhite,
+                  color: AppColor.colorWhite,
                   fontSize: 17.0,
                 ),
                 textAlign: TextAlign.left,
@@ -77,374 +80,65 @@ class _MyAppState extends State<MyApp> {
                 padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
                 child: Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: OutlineButton(
-                        onPressed: () {
-                          print('Tapped!');
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
-                        child: Text(
-                          'Workout',
-                          style: TextStyle(color: colorWhite),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: OutlineButton(
-                        onPressed: () {
-                          print('Tapped!');
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          'Relax',
-                          style: TextStyle(color: colorWhite),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: OutlineButton(
-                        onPressed: () {
-                          print('Tapped!');
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
-                        child: Text(
-                          'Party',
-                          style: TextStyle(color: colorWhite),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: OutlineButton(
-                        onPressed: () {
-                          print('Tapped!');
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28.0),
-                        ),
-                        child: Text(
-                          'Romance',
-                          style: TextStyle(color: colorWhite),
-                        ),
-                      ),
-                    ),
+                    TagButton(textButton: 'Workout'),
+                    TagButton(textButton: 'Relax'),
+                    TagButton(textButton: 'Party'),
+                    TagButton(textButton: 'Romance'),
                   ],
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 15.0, bottom: 10.0),
-                  child: Text(
-                    'Your favorites',
-                    style: TextStyle(
-                        color: colorWhite,
-                        fontSize: 25.0,
-                        fontFamily: 'League'),
-                  ),
-                ),
-              ),
+              FancyText(text: 'Your favorites'),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/cover1.jpg',
-                              fit: BoxFit.cover,
-                              width: 150.0,
-                              height: 150.0,
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              'I wanna be yours',
-                              style:
-                                  TextStyle(color: colorWhite, fontSize: 15.0),
-                              textAlign: TextAlign.left,
-                            ),
-                            margin: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-                          ),
-                          Container(
-                            child: Text(
-                              'Arctic Monkeys',
-                              style:
-                                  TextStyle(color: colorWhite, fontSize: 10.0),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover2.png',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover3.jpg',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover4.png',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
+                    AlbumCover(imagePath: 'assets/images/cover1.jpg'),
+                    AlbumCover(imagePath: 'assets/images/cover2.png'),
+                    AlbumCover(imagePath: 'assets/images/cover3.jpg'),
+                    AlbumCover(imagePath: 'assets/images/cover4.png'),
                   ],
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(top: 15.0, left: 15.0, bottom: 10.0),
-                  child: Text(
-                    'Mixed for you',
-                    style: TextStyle(
-                        color: colorWhite,
-                        fontSize: 25.0,
-                        fontFamily: 'League'),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
+              FancyText(text: 'Mixed for you'),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover6.png',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover7.jpg',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
+                    AlbumCover(imagePath: 'assets/images/cover6.png'),
+                    AlbumCover(imagePath: 'assets/images/cover7.jpg'),
                   ],
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(top: 15.0, left: 15.0),
-                  child: Text(
-                    'Listen again',
-                    style: TextStyle(color: colorWhite, fontSize: 15.0),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 15.0, bottom: 10.0),
-                  child: Text(
-                    'Your daily music',
-                    style: TextStyle(
-                        color: colorWhite,
-                        fontSize: 25.0,
-                        fontFamily: 'League'),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
+              SimpleText(text: 'Listen again'),
+              FancyText(text: 'Your daily music'),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover8.jpg',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
-                    Card(
-                      margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                      color: colorBlack,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/cover9.png',
-                          fit: BoxFit.cover,
-                          width: 200.0,
-                          height: 200.0,
-                        ),
-                      ),
-                    ),
+                    AlbumCover(imagePath: 'assets/images/cover8.jpg'),
+                    AlbumCover(imagePath: 'assets/images/cover9.png'),
                   ],
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(top: 15.0, left: 15.0),
-                  child: Text(
-                    'Start radio based on a song',
-                    style: TextStyle(color: colorWhite, fontSize: 15.0),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 15.0, bottom: 10.0),
-                  child: Text(
-                    'Quick picks',
-                    style: TextStyle(
-                        color: colorWhite,
-                        fontSize: 25.0,
-                        fontFamily: 'League'),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
+              SimpleText(text: 'Start radio based on a song'),
+              FancyText(text: 'Quick picks'),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Card(
-                    color: colorGray,
-                    child: InkWell(
-                      splashColor: colorBlack,
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: ListTile(
-                              leading: Image.asset(
-                                'assets/images/cover7.jpg',
-                                fit: BoxFit.cover,
-                                width: 50.0,
-                                height: 50.0,
-                              ),
-                              title: Text('Yamakasi'),
-                              subtitle: Text('Miyagi & Andy Panda'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: colorGray,
-                    child: InkWell(
-                      splashColor: colorBlack,
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: ListTile(
-                              leading: Image.asset(
-                                'assets/images/cover1.jpg',
-                                fit: BoxFit.cover,
-                                width: 50.0,
-                                height: 50.0,
-                              ),
-                              title: Text('505'),
-                              subtitle: Text('Arctic Monkeys'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  QuickPicks(
+                      imagePath: 'assets/images/cover7.jpg',
+                      textTitle: 'Yamakasi',
+                      textSubtitle: 'Miyagi & Andy Panda'),
+                  QuickPicks(
+                      imagePath: 'assets/images/cover1.jpg',
+                      textTitle: '505',
+                      textSubtitle: 'Arctic Monkeys'),
                 ],
               ),
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                icon: Icon(Icons.home),
-                color: colorWhite,
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(Icons.explore),
-                color: colorWhite,
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(Icons.library_music),
-                color: colorWhite,
-                onPressed: () {},
-              ),
-            ],
-          ),
-          color: colorGray,
-        ),
+        bottomNavigationBar: MyBottomAppBar(),
       ),
     );
   }
