@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:my_app_3/AppColor.dart';
+import 'package:my_app_3/app_color.dart';
 
 //ignore: must_be_immutable
 class TagButton extends Container {
@@ -23,6 +23,7 @@ class TagButton extends Container {
       child: OutlineButton(
         onPressed: () {
           print(_textConsole);
+          Navigator.pushNamed(context, '/second');
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(28.0),

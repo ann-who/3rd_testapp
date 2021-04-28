@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app_3/AppColor.dart';
+import 'package:my_app_3/app_color.dart';
 
 class MyBottomAppBar extends Container {
   MyBottomAppBar();

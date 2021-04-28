@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app_3/AppColor.dart';
+import 'package:my_app_3/app_color.dart';
 
 //ignore: must_be_immutable
 class QuickPick extends Card {
